@@ -3,9 +3,8 @@ package com.enrollment.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.enrollment.entity.StaffEntity;
-
+import com.enrollment.entity.SemesterEntity;
 @Repository
-public interface StaffRepository extends JpaRepository<StaffEntity, Long>{
+public interface SemesterRepository extends JpaRepository<SemesterEntity,Long>{
 
 }

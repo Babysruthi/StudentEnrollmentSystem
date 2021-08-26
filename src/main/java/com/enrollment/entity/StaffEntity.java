@@ -1,19 +1,43 @@
 package com.enrollment.entity;
 
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="StaffPersonal")
-public class StaffEntity {
+public class StaffEntity implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+	@OneToOne(mappedBy="username",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private StaffLoginEntity user;
+	
+	@OneToOne( fetch = FetchType.LAZY)
+	@JoinColumn(name="id",nullable=false)
+	@JsonIgnore
+	 private StaffAssignEntity staffId;
+	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	private long autoId;
+	
+	@Column(nullable=false)
+	private Long newId;
 	@Column(nullable=false)
 	private String firstName;
 	@Column(nullable=false)
@@ -24,34 +48,29 @@ public class StaffEntity {
 	private String gender;
 	@Column(nullable=false)
 	private String qualification;
-	@Column(nullable=false,unique=true)
+	@Column(nullable=false)
 	private String email;
 	@Column(nullable=false)
 	private Long contactNo;
 	@Column(nullable=false)
 	private String address;
-	
-	public StaffEntity() {
-		super();
+	public StaffLoginEntity getUser() {
+		return user;
 	}
-	public StaffEntity(Integer id, String firstName, String lastName, String dateOfBirth, String gender,
-			String qualification, String email, Long contactNo, String address) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.gender = gender;
-		this.qualification = qualification;
-		this.email = email;
-		this.contactNo = contactNo;
-		this.address = address;
+	public void setUser(StaffLoginEntity user) {
+		this.user = user;
 	}
-	public Integer getId() {
-		return id;
+	public StaffAssignEntity getStaffId() {
+		return staffId;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setStaffId(StaffAssignEntity staffId) {
+		this.staffId = staffId;
+	}
+	public Long getNewId() {
+		return newId;
+	}
+	public void setNewId(Long newId) {
+		this.newId = newId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -101,12 +120,27 @@ public class StaffEntity {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Override
-	public String toString() {
-		return "StaffEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
-				+ dateOfBirth + ", gender=" + gender + ", qualification=" + qualification + ", email=" + email
-				+ ", contactNo=" + contactNo + ", address=" + address + "]";
+	
+	public StaffEntity() {
+		super();
 	}
+	public StaffEntity(StaffLoginEntity user, StaffAssignEntity staffId, Long newId, String firstName, String lastName,
+			String dateOfBirth, String gender, String qualification, String email, Long contactNo, String address) {
+		super();
+		this.user = user;
+		this.staffId = staffId;
+		this.newId = newId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.qualification = qualification;
+		this.email = email;
+		this.contactNo = contactNo;
+		this.address = address;
+	}
+	
+	
 	
 	
 	
