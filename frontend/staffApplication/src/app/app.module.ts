@@ -16,6 +16,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { MainComponent } from './main/main.component';
 import { StudentEnrollListComponent } from './student-enroll-list/student-enroll-list.component';
+import { StaffSignupComponent } from './staff-signup/staff-signup.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { StudentEnrollListComponent } from './student-enroll-list/student-enroll
     ResetPasswordComponent,
     ViewProfileComponent,
     MainComponent,
-    StudentEnrollListComponent
+    StudentEnrollListComponent,
+    StaffSignupComponent
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { MainComponent } from './main/main.component';
 import { StudentEnrollListComponent } from './student-enroll-list/student-enroll-list.component';
-
-
-
+import { StaffSignupComponent } from './staff-signup/staff-signup.component';
 
 const routes: Routes = [
 {path:'staffMain',component:StaffModuleComponent},
@@ -20,7 +18,8 @@ const routes: Routes = [
 {path:'resetPass',component:ResetPasswordComponent},
 {path:'viewProfile',component:ViewProfileComponent},
 {path:'main',component:MainComponent},
-{path:'viewStudentList',component:StudentEnrollListComponent}
+{path:'viewStudentList',component:StudentEnrollListComponent},
+{path:'staffsignup',component:StaffSignupComponent}
 
 
 

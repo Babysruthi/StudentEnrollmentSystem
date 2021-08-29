@@ -15,6 +15,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentEnrollListComponent implements OnInit {
 
+  
   StudentDetailsForm=new FormGroup(
     {
       courseCode:new FormControl(''),
@@ -22,9 +23,8 @@ export class StudentEnrollListComponent implements OnInit {
     }
   )
   courseDetails:string[]| any
-  i:Number|any
   studentDetails:Observable<Number[]>|any
-  public student:Observable<Student[]>|any
+  student:Observable<Student[]>|any
   constructor(private courseService:StaffCourseAssignService, private enroll:EnrollmentService,
      private stud:StudentService) { }
   loginId=localStorage.getItem("user")
@@ -52,11 +52,14 @@ onSubmit()
       this.studentDetails=data
     }
       )
-      for(this.i=0;this.i<this.student.length;this.i++)
-      console.log(this.student[this.i])
+      
+      for(var i=0;i<this.studentDetails.length;i++)
+      {
+        console.log(this.studentDetails)
+      }
      
     }
   
- 
-
+     
+  
 }
