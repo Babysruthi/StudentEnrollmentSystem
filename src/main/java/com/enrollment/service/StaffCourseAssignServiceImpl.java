@@ -49,6 +49,7 @@ CourseRepository courseRepository;
 		return new ResponseEntity<String>("Course is assigned to staff Successfully!",new HttpHeaders(),HttpStatus.OK);
 
 	
+		
 	}
 
 	@Override
@@ -59,6 +60,18 @@ CourseRepository courseRepository;
 			throw new CourseCodeNotFoundException("Course Code Not Found!,Enter the valid id");
 		}
 		List<StaffCourseAssignEntity> staffDetails=staffCourseAssignRepository.getByCourseCode(courseCode);
+		return staffDetails;
+	
+	}
+
+	@Override
+	public List<String> getCourseDetailsByStaffId(Long newId)
+			throws StaffIdNotFoundException {
+		if(!staffAssignRepository.existsById(newId))
+		{
+			throw new StaffIdNotFoundException("StaffId Not Found!,Enter the valid id");
+		}
+		List<String> staffDetails=staffCourseAssignRepository.getCourseDetailsByStaffId(newId);
 		return staffDetails;
 	
 	}

@@ -24,7 +24,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+
 @Entity
 @Table(name="StaffCourseAssign")
 public class StaffCourseAssignEntity implements Serializable{
@@ -39,10 +39,10 @@ public class StaffCourseAssignEntity implements Serializable{
 	private StaffAssignEntity staffId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	
 	@JoinColumn(name="courseCode",nullable=false)
 	@JsonIgnore
 	private CourseEntity courseId;
 	
-	
-	
+
 }

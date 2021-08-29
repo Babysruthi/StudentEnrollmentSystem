@@ -17,6 +17,8 @@ public interface StaffCourseAssignService {
 
 	List<StaffCourseAssignEntity> getStaffDetailsByCourseId(String courseCode) throws  CourseCodeNotFoundException;
 
+	List<String> getCourseDetailsByStaffId(Long newId) throws  StaffIdNotFoundException;
+	
 	ResponseEntity<String> updateCourseDetails(Long newId,String courseId,StaffCourseAssignEntity staffCourseAssignDetails) throws StaffIdNotFoundException;
 
 	ResponseEntity<String> deleteStaffCourse(Long newId,String courseId) throws StaffIdNotFoundException;

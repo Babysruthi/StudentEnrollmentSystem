@@ -28,6 +28,8 @@ public interface StaffCourseAssignRepository extends JpaRepository<StaffCourseAs
 	@Query("DELETE from StaffCourseAssignEntity s where s.courseId.courseCode=:courseId and s.staffId.id=:newId")
 	void deleteByCourseId(@Param("courseId") String courseId,@Param("newId") Long newId);
 	
+	@Query("SELECT c.courseId.courseCode FROM StaffCourseAssignEntity c WHERE  c.staffId.id=:newId ")
+	List<String> getCourseDetailsByStaffId(@Param("newId") Long newId);
 	
 	
 //	public static final String FIND_PROJECTS = "SELECT sc.auto_id,s.id,c.course_code FROM staff_course_assign sc join staff_assign s on sc.id=s.id join course c on sc.course_code=c.course_code WHERE c.course_code=?1";

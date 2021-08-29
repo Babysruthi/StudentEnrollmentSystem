@@ -24,7 +24,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name="Department")
 public class DepartmentEntity implements Serializable{

@@ -1,0 +1,26 @@
+
+<form [formGroup]="formData" (ngSubmit)="login(formData.value)">
+<table>
+    <tr>
+        <td><label for="loginId">User Id</label></td>
+        <td><input type="number" value={{id}} required="required"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit"  value="Get Details" class="btn btn-success mt-3 mb-3"></td>
+      </tr>
+</table>
+</form>
+
+<table>
+<tbody>
+    <tr>
+    <th>Staff Password</th>
+    <th>Staff userId</th>
+</tr>
+<tr>
+    <td>{{logindata?.password}}</td>
+    <td>{{logindata?.userId}}</td>
+</tr>
+</tbody>
+</table>
